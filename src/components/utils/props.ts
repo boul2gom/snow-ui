@@ -1,3 +1,5 @@
+import { State } from "./types";
+
 export interface Base {
     className?: string;
     children?: React.ReactNode;
@@ -12,4 +14,6 @@ export interface Polymorphic<As extends React.ElementType> extends Base {
     as?: As,
 };
 
-export interface Stated<
+export interface Stated<T> extends Base {
+    state: State<T>
+};
