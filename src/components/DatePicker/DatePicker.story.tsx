@@ -11,7 +11,7 @@ type Story = StoryObj<typeof DatePicker>;
 
 export const Component: Story = {
     args: {
-        onChange: () => {},
+        on_change: () => {},
 
         range: true,
         initialFirst: undefined,

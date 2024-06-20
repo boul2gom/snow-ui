@@ -10,7 +10,10 @@ export const TextStrip: React.FC<Properties> = ({
     className, children, ...props
 }) => {
     const styles = { width: `${width}px`, height: `${height}px` };
-    const classes = clsx("rounded-lg items-center text-center", strip ? "bg-[#C6C7F8]" : "bg-black bg-opacity-5", className);
+    const classes = clsx("rounded-lg items-center text-center", {
+        "bg-[#C6C7F8]": strip,
+        "bg-black bg-opacity-5": !strip,
+    }, className);
 
     return <Component className={classes} style={styles} {...props}> { children } </Component>;
 };

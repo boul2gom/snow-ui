@@ -20,7 +20,7 @@ export const Button: React.FC<Properties> = ({
     size = 'medium', style = 'outline', right, left, withArrow = false,
     disabled = false, onClick, as: Component = 'button', children, className, ...props
 }) => {
-    const square = (!children && right && !left) || (!children && !right && left) as boolean;
+    const square = (children && !left && !right) as boolean;
 
     const arrow = clsx({
         "text-black text-opacity-40": contains(style, 'borderless', 'gray', 'outline', 'custom'),
@@ -31,7 +31,7 @@ export const Button: React.FC<Properties> = ({
         "py-1 rounded-lg text-sm space-x-1": contains(size, 'small'),
         "py-2 rounded-xl text-base space-x-2": contains(size, 'medium'),
         "py-3 rounded-2xl text-lg space-x-2": contains(size, 'large'),
-    }, { //Add padding, depending if square or not
+    }, {
         "px-2": (square && contains(size, 'medium')) || (!square && contains(size, 'small')),
         "px-1": square && contains(size, 'small'),
         "px-3": square && contains(size, 'large'),
